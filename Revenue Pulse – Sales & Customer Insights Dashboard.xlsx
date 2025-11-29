@@ -1,0 +1,244 @@
+# Revenue Pulse – Sales & Customer Insights Dashboard
+
+A Power BI case study by K. Sarvesh
+
+---
+
+## 📊 Project Overview
+
+**Revenue Pulse** is a 2-page Power BI dashboard built to analyze sales performance, profitability, and customer insights for a mid-size retail business.  
+It demonstrates end-to-end Data Analytics and Power BI skills including data modeling, DAX calculations, time-intelligence, KPI design, interactive storytelling, and practical business problem-solving.
+
+This project is designed to showcase capabilities for Data Analyst / BI Analyst roles and is suitable for a fresher competing with 1–2 years of experience.
+
+---
+
+## 🎯 Business Objectives
+
+The dashboard answers the following business questions:
+- How are Revenue, Profit, and Growth (MoM & YoY) performing?
+- Which regions, products, and customers drive the most value?
+- How do sales reps compare in performance?
+- Which product categories are high-revenue but low-margin?
+- How do customer segments behave across loyalty and age groups?
+- What is the near-term revenue forecast?
+
+This simulates a real-company scenario to support strategic decision-making.
+
+---
+
+## 🧱 Dataset & Data Model
+
+The project uses a clean, relational star-schema model.
+
+Fact table
+- Sales_Fact (500–700 rows)
+  - Date — Transaction date
+  - ProductID — FK → Products_Dim
+  - CustomerID — FK → Customers_Dim
+  - SalesRepID — FK → SalesRep_Dim
+  - Region — Sales region
+  - UnitsSold — Quantity
+  - UnitPrice — Price per unit
+  - Revenue — UnitsSold × UnitPrice
+  - Cost — Expense tied to sale
+  - Profit — Revenue − Cost
+
+Dimension tables
+- Products_Dim
+  - ProductName, Category, Subcategory, Brand, LaunchYear
+- Customers_Dim
+  - Segment (Retail / SMB / Enterprise), AgeGroup, LoyaltyLevel (Bronze → Platinum), JoinDate
+- SalesRep_Dim
+  - Region, ExperienceLevel (Junior / Mid / Senior), JoinYear
+- Calendar_Dim
+  - Date, Year, MonthNumber, MonthName, Quarter, YearMonth
+
+Notes:
+- The model follows a star schema with Sales_Fact at the center and dimension lookups for efficient reporting and time intelligence.
+
+---
+
+## 🧮 Key DAX Measures
+
+Core KPIs used in the dashboard:
+
+Total Revenue
+```dax
+Total Revenue = SUM(Sales_Fact[Revenue])
+```
+
+Total Profit
+```dax
+Total Profit = SUM(Sales_Fact[Profit])
+```
+
+Profit Margin %
+```dax
+Profit Margin % = DIVIDE([Total Profit], [Total Revenue])
+```
+
+Total Revenue LY (Last Year)
+```dax
+Total Revenue LY =
+CALCULATE([Total Revenue], SAMEPERIODLASTYEAR(Calendar_Dim[Date]))
+```
+
+Total Revenue LM (Last Month)
+```dax
+Total Revenue LM =
+CALCULATE([Total Revenue], DATEADD(Calendar_Dim[Date], -1, MONTH))
+```
+
+MoM Growth %
+```dax
+MoM Growth % =
+DIVIDE([Total Revenue] - [Total Revenue LM], [Total Revenue LM])
+```
+
+YoY Growth %
+```dax
+YoY Growth % =
+DIVIDE([Total Revenue] - [Total Revenue LY], [Total Revenue LY])
+```
+
+Sales Rep Performance Score
+```dax
+Sales Rep Performance Score =
+VAR BaseRevenue = CALCULATE([Total Revenue], ALL(SalesRep_Dim))
+VAR BaseProfit  = CALCULATE([Total Profit], ALL(SalesRep_Dim))
+VAR BaseMargin  = CALCULATE([Profit Margin %], ALL(SalesRep_Dim))
+VAR RevenueScore = DIVIDE([Total Revenue], BaseRevenue) * 50
+VAR ProfitScore  = DIVIDE([Total Profit], BaseProfit) * 30
+VAR MarginScore  = DIVIDE([Profit Margin %], BaseMargin) * 20
+RETURN RevenueScore + ProfitScore + MarginScore
+```
+
+Revenue 3M Moving Avg
+```dax
+Revenue 3M Moving Avg =
+AVERAGEX(
+    DATESINPERIOD(Calendar_Dim[Date], MAX(Calendar_Dim[Date]), -3, MONTH),
+    [Total Revenue]
+)
+```
+
+---
+
+## 🖥️ Dashboard Pages & Visuals
+
+Page 1 — Executive Sales Overview
+- KPI cards: Revenue, Profit, Margin %, MoM %, YoY %
+- Sales Trend (YoY line chart)
+- Region-wise heatmap / map
+- Top 5 Products (bar chart)
+- Customer Segment split (donut)
+- Sales Rep leaderboard
+- Creative visual: “Revenue Thermometer” / Gauge
+
+Purpose: quick snapshot for business leaders and recruiters.
+
+Page 2 — Deep Dive Analysis
+- Profitability matrix (Category vs Margin %)
+- Customer Lifetime Value (Loyalty Level vs Revenue)
+- Cohort-like analysis (Join Year vs Revenue)
+- Product drill-through
+- Tooltip pages for micro-insights
+- Bookmarks: toggle between visual view and table view
+
+Purpose: identify drivers, patterns and improvement areas.
+
+---
+
+## 🎨 UI / UX Design
+
+- Clean white / light gray background
+- Accent colors: navy + teal
+- Consistent spacing and alignment
+- Minimal clutter; executive-friendly layout
+- Design inspiration: enterprise BI dashboards (focus on clarity and quick insights)
+
+---
+
+## 🧩 Skills Demonstrated
+
+Technical
+- Power BI data modeling (star schema)
+- DAX: KPIs, time intelligence, advanced composite scores
+- Report features: drill-through, bookmarks, tooltips, visuals
+- Interactive dashboard design and storytelling
+
+Analytical
+- Trend analysis, profitability & margin analysis
+- Customer segmentation and cohort analysis
+- Near-term forecasting using moving averages
+
+Business
+- Understanding and prioritizing business metrics
+- Executive-level storytelling via dashboards
+- KPI monitoring framework
+
+---
+
+## 📁 Recommended Repository Structure
+
+Revenue-Pulse-Dashboard
+- Data/
+  - Sales_Fact.csv
+  - Products_Dim.csv
+  - Customers_Dim.csv
+  - SalesRep_Dim.csv
+  - Calendar_Dim.csv
+- PBIX/
+  - Revenue_Pulse_Dashboard.pbix
+- Images/
+  - Page1_Executive_View.png
+  - Page2_Deep_Dive.png
+- README.md
+
+---
+
+## 🚀 How to use
+
+1. Clone the repository.
+2. Open Power BI Desktop and load the CSV files from the `Data/` folder (or refresh the PBIX dataset).
+3. Open `PBIX/Revenue_Pulse_Dashboard.pbix` to explore the two pages.
+4. Use slicers and drill-through to explore by Region, Product Category, Customer Segment, and SalesRep.
+5. To publish, sign in to Power BI Service and publish the PBIX. Configure scheduled refresh if connecting to cloud storage or a data gateway.
+
+Tips:
+- Ensure Calendar_Dim[Date] is marked as a Date table in Power BI for full time-intelligence functionality.
+- Validate relationships: Sales_Fact → Calendar_Dim (Date), Sales_Fact → Products_Dim (ProductID), etc.
+
+---
+
+## ✅ Validation & Notes
+
+- The dataset in this case study is intentionally compact to focus on modeling and DAX examples.
+- Replace sample CSVs with real/external data for production scenarios; the model and measures are designed to scale.
+- Review row-level security and data governance before publishing to production.
+
+---
+
+## 🔭 Next steps / Improvements
+
+- Add a forecasting model (e.g., exponential smoothing or Prophet) for longer-term forecasting.
+- Include drill-through pages per Product and per Customer with deeper KPIs (LTV, churn risk).
+- Implement row-level security for region-based access control.
+- Automate data refresh via Power BI Gateway or cloud data pipelines.
+- Add unit tests for DAX and automated data validation (e.g., using Power BI REST APIs or deployment pipelines).
+
+---
+
+## ✉️ Contact
+
+Created by — K. Sarvesh (K. Sarvesh)  
+Aspiring Data Analyst & BI Analyst
+
+If you have feedback, suggestions, or opportunities related to Data Analytics / BI, feel free to reach out.
+
+---
+
+## License
+
+This repository is provided as a sample portfolio project. Add a license (e.g., MIT) as appropriate.
