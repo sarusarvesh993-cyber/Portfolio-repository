@@ -1,0 +1,331 @@
+Mustang GT Data Analytics Dashboard
+
+A Data Analytics Case Study Using Power BI, SQL, Snowflake, and Excel
+
+
+📌 Table of Contents
+
+Project Overview
+
+Problem Statement & Objective
+
+Data Pipeline
+
+Features
+
+Technical Architecture Diagram
+
+SQL Queries
+
+Snowflake Setup Instructions
+
+How to Use the Dashboard
+
+Screenshots
+
+Key Insights & Business Impact
+
+Installation & Setup
+
+Project Folder Structure
+
+Future Improvements
+
+Contact
+
+1️⃣ Project Overview
+
+The Mustang GT Data Analytics Dashboard is a full-stack analytics case study designed to showcase how data engineering, BI development, and business analytics come together to uncover insights in the automotive industry.
+
+This project analyzes Mustang GT sales, customer behavior, regional trends, and vehicle variant performance.
+The final Power BI dashboard helps answer business questions such as:
+
+Which Mustang GT variants generate the most revenue?
+
+Which regions or dealers perform best?
+
+What trends appear across months and years?
+
+How do customer segments influence sales?
+
+This project demonstrates end-to-end analytics skills—from cleaning raw data to writing SQL, using Snowflake as a warehouse, and building an interactive dashboard in Power BI.
+
+2️⃣ Problem Statement & Objective
+Problem Statement
+
+Automotive companies often struggle to understand how different car models perform across regions, customer types, and time periods. Without clear insights, optimizing production, marketing, and inventory becomes challenging.
+
+Objectives
+
+This dashboard aims to answer:
+
+How are Mustang GT sales distributed across regions?
+
+Which variants generate the highest profit and demand?
+
+What customer segments prefer Mustang GT models?
+
+How do sales fluctuate over months/years?
+
+Which dealers contribute the most units sold?
+
+3️⃣ Data Pipeline Explanation
+
+A simplified workflow describing how the dataset flows through the system:
+
+Excel (Raw Data Cleaning)
+        ↓
+SQL (Transformations + Aggregations)
+        ↓
+Snowflake (Cloud Warehouse + Live Query Layer)
+        ↓
+Power BI (Dashboard Visuals + UX + Storytelling)
+
+Dataset Columns Used
+
+Sales
+
+Units Sold
+
+Region
+
+Dealer
+
+Variant
+
+Engine Specs
+
+Customer Segment
+
+Date
+
+4️⃣ Features
+Dashboard Capabilities
+
+Vehicle Performance Insights
+KPIs, engine specs, monthly trends, horsepower averages.
+
+Revenue & Sales Breakdown
+YOY/MOM charts, revenue KPIs, and model profitability.
+
+Customer Segmentation
+Donut charts to visualize preferences by segment.
+
+Dynamic Filters
+Users can filter by region, dealer, variant, date, customer segment.
+
+Drill-Through Functions
+Navigate to dealer-level or variant-level performance pages.
+
+Custom Navigation Panel
+Bookmark-based navigation with an intuitive left-side menu.
+
+Year-Month Analysis (Time Intelligence)
+YTD, QTD, MTD performance calculations.
+
+Variant Comparison
+Compare EcoBoost, GT, Mach 1, and others using bar/line charts.
+
+5️⃣ Technical Architecture Diagram (ASCII)
+                   ┌────────────────────────┐
+                   │        Excel           │
+                   │ Cleaning + Preprocess  │
+                   └───────────┬────────────┘
+                               │
+                               ▼
+                   ┌────────────────────────┐
+                   │          SQL           │
+                   │ Transform + Aggregate  │
+                   └───────────┬────────────┘
+                               │
+                               ▼
+                   ┌────────────────────────┐
+                   │       Snowflake        │
+                   │ Cloud Data Warehouse   │
+                   └───────────┬────────────┘
+                               │ Live Connection
+                               ▼
+                   ┌────────────────────────┐
+                   │        Power BI        │
+                   │  Visualization + UX    │
+                   └────────────────────────┘
+
+6️⃣ SQL Queries (Examples)
+1. Sales Aggregation
+SELECT 
+    Variant,
+    SUM(Sales) AS Total_Revenue,
+    SUM(Units_Sold) AS Total_Units
+FROM sales_data
+GROUP BY Variant;
+
+2. Region-wise Grouping
+SELECT 
+    Region,
+    SUM(Units_Sold) AS Units_Sold,
+    SUM(Sales) AS Revenue
+FROM sales_data
+GROUP BY Region;
+
+3. Variant Comparison Query
+SELECT 
+    Variant,
+    AVG(Engine_HP) AS Avg_HP,
+    AVG(Sales) AS Avg_Sales
+FROM car_specs
+GROUP BY Variant;
+
+7️⃣ Snowflake Setup Instructions
+1. Create Warehouse
+CREATE WAREHOUSE mustang_wh 
+WITH WAREHOUSE_SIZE='XSMALL' 
+AUTO_SUSPEND=300 
+AUTO_RESUME=TRUE;
+
+2. Create Database & Schema
+CREATE DATABASE mustang_db;
+CREATE SCHEMA analytics;
+
+3. Upload Dataset
+
+Use Snowflake Web UI → Load Data
+OR
+Use command line PUT commands to load CSVs.
+
+4. Connect Snowflake to Power BI
+
+Open Power BI Desktop
+
+Select Get Data → Snowflake
+
+Enter:
+
+Server Name
+
+Warehouse
+
+Role
+
+Database
+
+Choose Import or DirectQuery
+
+8️⃣ How to Use the Dashboard
+
+Open the .pbix file in Power BI Desktop.
+
+Use the navigation menu to switch between pages.
+
+Apply filters for:
+
+Region
+
+Variant
+
+Customer segment
+
+Dealer
+
+Hover over visuals for tooltips.
+
+Click charts to activate cross-filtering.
+
+Use drill-through pages for deeper insights.
+
+9️⃣ Screenshots
+
+(Add your images inside the images/ folder)
+
+![Dashboard Overview](images/overview.png)
+![Sales Insights](images/sales.png)
+![Variant Comparison](images/variant.png)
+![Regional Performance](images/region.png)
+
+🔟 Key Insights & Business Impact
+
+Top Regions: Identify high-performing markets boosting Mustang GT sales.
+
+Best-Selling Variants: GT Premium and Mach 1 show highest profitability.
+
+Customer Demographics: Premium customers contribute majority revenue.
+
+Dealer-Level Insights: Specific dealers outperform due to regional demand alignment.
+
+Time Trends: Seasonal spikes around Q3 and Q4 driven by promotional events.
+
+1️⃣1️⃣ Installation & Setup
+Requirements
+
+Excel
+
+SQL environment (MySQL/Postgres/Snowflake Worksheets)
+
+Snowflake account
+
+Power BI Desktop
+
+Steps
+
+Clone the repository
+
+Download datasets
+
+Load raw data into Excel → clean
+
+Upload cleaned files to Snowflake
+
+Run SQL transformations
+
+Connect Power BI to Snowflake
+
+Refresh dashboard visuals
+
+1️⃣2️⃣ Project Folder Structure
+MustangGT-Dashboard/
+│
+├── data/
+│   ├── raw/
+│   └── cleaned/
+│
+├── sql/
+│   ├── sales_queries.sql
+│   ├── region_queries.sql
+│   └── variant_queries.sql
+│
+├── snowflake/
+│   ├── warehouse_setup.sql
+│   ├── schema_design.sql
+│   └── load_scripts/
+│
+├── powerbi/
+│   └── MustangGT_Dashboard.pbix
+│
+├── images/
+│   ├── overview.png
+│   ├── sales.png
+│   ├── variant.png
+│   └── region.png
+│
+└── README.md
+
+1️⃣3️⃣ Future Improvements
+
+Add predictive modeling (ARIMA or Prophet for sales forecasting)
+
+Enable real-time Snowflake streaming using Snowpipe
+
+Expand analysis to include other Ford models
+
+Add sentiment analysis from customer reviews
+
+Integrate Power Automate for automated report delivery
+
+1️⃣4️⃣ Contact
+
+📌 GitHub:
+https://github.com/sarsarvesh993-cyber/MustangGT-Dashboard
+
+📩 Email:
+kommawar57@gmail.com
+
+If you found this project useful, feel free to star the repo or reach out for collaboration opportunities!
