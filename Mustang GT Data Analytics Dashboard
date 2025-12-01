@@ -6,31 +6,18 @@ A Data Analytics Case Study Using Power BI, SQL, Snowflake, and Excel
 📌 Table of Contents
 
 Project Overview
-
 Problem Statement & Objective
-
 Data Pipeline
-
 Features
-
 Technical Architecture Diagram
-
 SQL Queries
-
 Snowflake Setup Instructions
-
 How to Use the Dashboard
-
-Screenshots
-
+Images 
 Key Insights & Business Impact
-
 Installation & Setup
-
 Project Folder Structure
-
 Future Improvements
-
 Contact
 
 1️⃣ Project Overview
@@ -232,7 +219,7 @@ Click charts to activate cross-filtering.
 
 Use drill-through pages for deeper insights.
 
-9️⃣ Screenshots
+9️⃣ Images 
 
 (Add your images inside the images/ folder)
 
