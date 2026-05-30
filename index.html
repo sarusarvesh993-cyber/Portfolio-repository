@@ -5,12 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sarvesh Kommawar | AI & Data Analyst</title>
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
+        * { margin: 0; padding: 0; box-sizing: border-box; }
         :root {
             --primary: #6C63FF;
             --secondary: #FF6584;
@@ -21,686 +16,257 @@
             --muted: #8888AA;
             --accent: #00D4FF;
         }
-
         body {
             font-family: 'Segoe UI', system-ui, sans-serif;
             background: var(--dark);
             color: var(--text);
             line-height: 1.6;
         }
-
-        /* NAV */
         nav {
-            position: fixed;
-            top: 0;
-            width: 100%;
+            position: fixed; top: 0; width: 100%;
             background: rgba(10,10,26,0.95);
             backdrop-filter: blur(10px);
             padding: 1rem 2rem;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            z-index: 1000;
+            display: flex; justify-content: space-between;
+            align-items: center; z-index: 1000;
             border-bottom: 1px solid rgba(108,99,255,0.2);
         }
-
-        .logo {
-            font-size: 1.3rem;
-            font-weight: 700;
-            color: var(--primary);
-            letter-spacing: 1px;
-        }
-
-        .nav-links {
-            display: flex;
-            gap: 2rem;
-            list-style: none;
-        }
-
-        .nav-links a {
-            color: var(--muted);
-            text-decoration: none;
-            font-size: 0.9rem;
-            transition: color 0.3s;
-        }
-
-        .nav-links a:hover {
-            color: var(--primary);
-        }
-
-        /* HERO */
+        .logo { font-size: 1.3rem; font-weight: 700; color: var(--primary); letter-spacing: 1px; }
+        .nav-links { display: flex; gap: 2rem; list-style: none; }
+        .nav-links a { color: var(--muted); text-decoration: none; font-size: 0.9rem; transition: color 0.3s; }
+        .nav-links a:hover { color: var(--primary); }
         .hero {
-            min-height: 100vh;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            text-align: center;
-            padding: 2rem;
-            background: 
-                radial-gradient(ellipse at 20% 50%, 
-                rgba(108,99,255,0.15) 0%, transparent 60%),
-                radial-gradient(ellipse at 80% 20%, 
-                rgba(0,212,255,0.1) 0%, transparent 60%),
-                var(--darker);
-            position: relative;
-            overflow: hidden;
+            min-height: 100vh; display: flex;
+            align-items: center; justify-content: center;
+            text-align: center; padding: 2rem;
+            background: radial-gradient(ellipse at 20% 50%, rgba(108,99,255,0.15) 0%, transparent 60%),
+                        radial-gradient(ellipse at 80% 20%, rgba(0,212,255,0.1) 0%, transparent 60%), var(--darker);
+            position: relative; overflow: hidden;
         }
-
         .hero::before {
-            content: '';
-            position: absolute;
-            width: 600px;
-            height: 600px;
-            border-radius: 50%;
+            content: ''; position: absolute;
+            width: 600px; height: 600px; border-radius: 50%;
             border: 1px solid rgba(108,99,255,0.1);
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
+            top: 50%; left: 50%; transform: translate(-50%, -50%);
             animation: pulse 4s ease-in-out infinite;
         }
-
         .hero::after {
-            content: '';
-            position: absolute;
-            width: 900px;
-            height: 900px;
-            border-radius: 50%;
+            content: ''; position: absolute;
+            width: 900px; height: 900px; border-radius: 50%;
             border: 1px solid rgba(108,99,255,0.05);
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
+            top: 50%; left: 50%; transform: translate(-50%, -50%);
             animation: pulse 4s ease-in-out infinite 1s;
         }
-
         @keyframes pulse {
             0%, 100% { transform: translate(-50%,-50%) scale(1); opacity: 1; }
             50% { transform: translate(-50%,-50%) scale(1.05); opacity: 0.5; }
         }
-
-        .hero-content {
-            position: relative;
-            z-index: 2;
-        }
-
+        .hero-content { position: relative; z-index: 2; }
         .hero-badge {
             display: inline-block;
             background: rgba(108,99,255,0.15);
             border: 1px solid rgba(108,99,255,0.3);
             color: var(--primary);
-            padding: 0.4rem 1.2rem;
-            border-radius: 50px;
-            font-size: 0.85rem;
-            margin-bottom: 1.5rem;
-            letter-spacing: 1px;
+            padding: 0.4rem 1.2rem; border-radius: 50px;
+            font-size: 0.85rem; margin-bottom: 1.5rem; letter-spacing: 1px;
         }
-
         .hero h1 {
             font-size: clamp(2.5rem, 6vw, 4.5rem);
-            font-weight: 800;
-            line-height: 1.1;
-            margin-bottom: 1rem;
+            font-weight: 800; line-height: 1.1; margin-bottom: 1rem;
         }
-
         .hero h1 span {
             background: linear-gradient(135deg, var(--primary), var(--accent));
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
         }
-
         .hero-subtitle {
-            font-size: 1.2rem;
-            color: var(--muted);
-            max-width: 600px;
-            margin: 0 auto 2rem;
+            font-size: 1.2rem; color: var(--muted);
+            max-width: 600px; margin: 0 auto 2rem;
         }
-
-        .hero-buttons {
-            display: flex;
-            gap: 1rem;
-            justify-content: center;
-            flex-wrap: wrap;
-        }
-
+        .hero-buttons { display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; }
         .btn-primary {
             background: linear-gradient(135deg, var(--primary), #8B83FF);
-            color: white;
-            padding: 0.9rem 2rem;
-            border-radius: 8px;
-            text-decoration: none;
-            font-weight: 600;
+            color: white; padding: 0.9rem 2rem; border-radius: 8px;
+            text-decoration: none; font-weight: 600;
             transition: transform 0.3s, box-shadow 0.3s;
             box-shadow: 0 4px 20px rgba(108,99,255,0.3);
         }
-
         .btn-primary:hover {
             transform: translateY(-2px);
             box-shadow: 0 8px 30px rgba(108,99,255,0.5);
         }
-
         .btn-secondary {
-            background: transparent;
-            color: var(--text);
-            padding: 0.9rem 2rem;
-            border-radius: 8px;
-            text-decoration: none;
-            font-weight: 600;
-            border: 1px solid rgba(255,255,255,0.2);
-            transition: all 0.3s;
+            background: transparent; color: var(--text);
+            padding: 0.9rem 2rem; border-radius: 8px;
+            text-decoration: none; font-weight: 600;
+            border: 1px solid rgba(255,255,255,0.2); transition: all 0.3s;
         }
-
-        .btn-secondary:hover {
-            border-color: var(--primary);
-            color: var(--primary);
-        }
-
-        .hero-stats {
-            display: flex;
-            gap: 3rem;
-            justify-content: center;
-            margin-top: 4rem;
-            flex-wrap: wrap;
-        }
-
-        .stat {
-            text-align: center;
-        }
-
-        .stat-number {
-            font-size: 2rem;
-            font-weight: 800;
-            color: var(--primary);
-        }
-
-        .stat-label {
-            font-size: 0.8rem;
-            color: var(--muted);
-            text-transform: uppercase;
-            letter-spacing: 1px;
-        }
-
-        /* SECTIONS */
-        section {
-            padding: 6rem 2rem;
-            max-width: 1100px;
-            margin: 0 auto;
-        }
-
-        .section-label {
-            color: var(--primary);
-            font-size: 0.85rem;
-            text-transform: uppercase;
-            letter-spacing: 2px;
-            margin-bottom: 0.5rem;
-        }
-
-        .section-title {
-            font-size: clamp(1.8rem, 4vw, 2.8rem);
-            font-weight: 800;
-            margin-bottom: 1rem;
-        }
-
+        .btn-secondary:hover { border-color: var(--primary); color: var(--primary); }
+        .hero-stats { display: flex; gap: 3rem; justify-content: center; margin-top: 4rem; flex-wrap: wrap; }
+        .stat { text-align: center; }
+        .stat-number { font-size: 2rem; font-weight: 800; color: var(--primary); }
+        .stat-label { font-size: 0.8rem; color: var(--muted); text-transform: uppercase; letter-spacing: 1px; }
+        section { padding: 6rem 2rem; max-width: 1100px; margin: 0 auto; }
+        .section-label { color: var(--primary); font-size: 0.85rem; text-transform: uppercase; letter-spacing: 2px; margin-bottom: 0.5rem; }
+        .section-title { font-size: clamp(1.8rem, 4vw, 2.8rem); font-weight: 800; margin-bottom: 1rem; }
         .section-title span {
             background: linear-gradient(135deg, var(--primary), var(--accent));
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
         }
-
-        .section-sub {
-            color: var(--muted);
-            font-size: 1rem;
-            margin-bottom: 3rem;
-            max-width: 600px;
-        }
-
-        /* SERVICES */
-        #services {
-            background: var(--darker);
-            max-width: 100%;
-            padding: 6rem 2rem;
-        }
-
-        #services .inner {
-            max-width: 1100px;
-            margin: 0 auto;
-        }
-
-        .services-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 1.5rem;
-            margin-top: 3rem;
-        }
-
+        .section-sub { color: var(--muted); font-size: 1rem; margin-bottom: 3rem; max-width: 600px; }
+        #services { background: var(--darker); max-width: 100%; padding: 6rem 2rem; }
+        #services .inner { max-width: 1100px; margin: 0 auto; }
+        .services-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 1.5rem; margin-top: 3rem; }
         .service-card {
-            background: var(--card);
-            border: 1px solid rgba(108,99,255,0.15);
-            border-radius: 16px;
-            padding: 2rem;
-            transition: all 0.3s;
-            position: relative;
-            overflow: hidden;
+            background: var(--card); border: 1px solid rgba(108,99,255,0.15);
+            border-radius: 16px; padding: 2rem;
+            transition: all 0.3s; position: relative; overflow: hidden;
         }
-
         .service-card::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            height: 2px;
+            content: ''; position: absolute; top: 0; left: 0; right: 0; height: 2px;
             background: linear-gradient(90deg, var(--primary), var(--accent));
-            opacity: 0;
-            transition: opacity 0.3s;
+            opacity: 0; transition: opacity 0.3s;
         }
-
         .service-card:hover {
             transform: translateY(-5px);
             border-color: rgba(108,99,255,0.4);
             box-shadow: 0 20px 40px rgba(0,0,0,0.3);
         }
-
-        .service-card:hover::before {
-            opacity: 1;
-        }
-
-        .service-icon {
-            font-size: 2.5rem;
-            margin-bottom: 1rem;
-        }
-
-        .service-card h3 {
-            font-size: 1.2rem;
-            margin-bottom: 0.75rem;
-            color: var(--text);
-        }
-
-        .service-card p {
-            color: var(--muted);
-            font-size: 0.9rem;
-            line-height: 1.7;
-        }
-
-        .service-tags {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 0.5rem;
-            margin-top: 1.2rem;
-        }
-
+        .service-card:hover::before { opacity: 1; }
+        .service-icon { font-size: 2.5rem; margin-bottom: 1rem; }
+        .service-card h3 { font-size: 1.2rem; margin-bottom: 0.75rem; color: var(--text); }
+        .service-card p { color: var(--muted); font-size: 0.9rem; line-height: 1.7; }
+        .service-tags { display: flex; flex-wrap: wrap; gap: 0.5rem; margin-top: 1.2rem; }
         .tag {
             background: rgba(108,99,255,0.1);
             border: 1px solid rgba(108,99,255,0.2);
-            color: var(--primary);
-            padding: 0.25rem 0.75rem;
-            border-radius: 50px;
-            font-size: 0.75rem;
+            color: var(--primary); padding: 0.25rem 0.75rem;
+            border-radius: 50px; font-size: 0.75rem;
         }
-
-        /* PROJECTS */
-        .projects-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-            gap: 1.5rem;
-            margin-top: 3rem;
-        }
-
+        .projects-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 1.5rem; margin-top: 3rem; }
         .project-card {
-            background: var(--card);
-            border: 1px solid rgba(108,99,255,0.15);
-            border-radius: 16px;
-            overflow: hidden;
-            transition: all 0.3s;
+            background: var(--card); border: 1px solid rgba(108,99,255,0.15);
+            border-radius: 16px; overflow: hidden; transition: all 0.3s;
         }
-
         .project-card:hover {
             transform: translateY(-5px);
             box-shadow: 0 20px 40px rgba(0,0,0,0.4);
             border-color: rgba(108,99,255,0.4);
         }
-
         .project-header {
-            height: 180px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 4rem;
-            position: relative;
-            overflow: hidden;
+            height: 180px; display: flex; align-items: center;
+            justify-content: center; font-size: 4rem;
+            position: relative; overflow: hidden;
         }
-
-        .project-header.blue {
-            background: linear-gradient(135deg, 
-            rgba(108,99,255,0.3), rgba(0,212,255,0.2));
-        }
-
-        .project-header.purple {
-            background: linear-gradient(135deg, 
-            rgba(139,83,255,0.3), rgba(255,101,132,0.2));
-        }
-
-        .project-header.teal {
-            background: linear-gradient(135deg, 
-            rgba(0,212,255,0.3), rgba(108,99,255,0.2));
-        }
-
-        .project-body {
-            padding: 1.5rem;
-        }
-
-        .project-body h3 {
-            font-size: 1.1rem;
-            margin-bottom: 0.5rem;
-        }
-
-        .project-body p {
-            color: var(--muted);
-            font-size: 0.875rem;
-            line-height: 1.7;
-            margin-bottom: 1rem;
-        }
-
-        .project-metrics {
-            display: flex;
-            gap: 1rem;
-            margin-bottom: 1.2rem;
-            flex-wrap: wrap;
-        }
-
+        .project-header.blue { background: linear-gradient(135deg, rgba(108,99,255,0.3), rgba(0,212,255,0.2)); }
+        .project-header.purple { background: linear-gradient(135deg, rgba(139,83,255,0.3), rgba(255,101,132,0.2)); }
+        .project-header.teal { background: linear-gradient(135deg, rgba(0,212,255,0.3), rgba(108,99,255,0.2)); }
+        .project-body { padding: 1.5rem; }
+        .project-body h3 { font-size: 1.1rem; margin-bottom: 0.5rem; }
+        .project-body p { color: var(--muted); font-size: 0.875rem; line-height: 1.7; margin-bottom: 1rem; }
+        .project-metrics { display: flex; gap: 1rem; margin-bottom: 1.2rem; flex-wrap: wrap; }
         .metric {
             background: rgba(0,212,255,0.1);
             border: 1px solid rgba(0,212,255,0.2);
-            color: var(--accent);
-            padding: 0.2rem 0.6rem;
-            border-radius: 4px;
-            font-size: 0.75rem;
-            font-weight: 600;
+            color: var(--accent); padding: 0.2rem 0.6rem;
+            border-radius: 4px; font-size: 0.75rem; font-weight: 600;
         }
-
-        .project-links {
-            display: flex;
-            gap: 0.75rem;
-        }
-
+        .project-links { display: flex; gap: 0.75rem; }
         .project-links a {
-            color: var(--primary);
-            text-decoration: none;
-            font-size: 0.85rem;
-            font-weight: 600;
-            display: flex;
-            align-items: center;
-            gap: 0.3rem;
+            color: var(--primary); text-decoration: none;
+            font-size: 0.85rem; font-weight: 600;
+            display: flex; align-items: center; gap: 0.3rem;
             transition: color 0.3s;
         }
-
-        .project-links a:hover {
-            color: var(--accent);
-        }
-
-        /* SKILLS */
-        #skills {
-            background: var(--darker);
-            max-width: 100%;
-            padding: 6rem 2rem;
-        }
-
-        #skills .inner {
-            max-width: 1100px;
-            margin: 0 auto;
-        }
-
-        .skills-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 1.5rem;
-            margin-top: 3rem;
-        }
-
+        .project-links a:hover { color: var(--accent); }
+        #skills { background: var(--darker); max-width: 100%; padding: 6rem 2rem; }
+        #skills .inner { max-width: 1100px; margin: 0 auto; }
+        .skills-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 1.5rem; margin-top: 3rem; }
         .skill-category {
-            background: var(--card);
-            border: 1px solid rgba(108,99,255,0.15);
-            border-radius: 16px;
-            padding: 1.5rem;
+            background: var(--card); border: 1px solid rgba(108,99,255,0.15);
+            border-radius: 16px; padding: 1.5rem;
         }
-
         .skill-category h3 {
-            font-size: 0.9rem;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            color: var(--primary);
-            margin-bottom: 1.2rem;
+            font-size: 0.9rem; text-transform: uppercase;
+            letter-spacing: 1px; color: var(--primary); margin-bottom: 1.2rem;
         }
-
-        .skill-item {
-            margin-bottom: 1rem;
-        }
-
-        .skill-info {
-            display: flex;
-            justify-content: space-between;
-            margin-bottom: 0.4rem;
-            font-size: 0.875rem;
-        }
-
-        .skill-bar {
-            height: 6px;
-            background: rgba(255,255,255,0.05);
-            border-radius: 3px;
-            overflow: hidden;
-        }
-
+        .skill-item { margin-bottom: 1rem; }
+        .skill-info { display: flex; justify-content: space-between; margin-bottom: 0.4rem; font-size: 0.875rem; }
+        .skill-bar { height: 6px; background: rgba(255,255,255,0.05); border-radius: 3px; overflow: hidden; }
         .skill-fill {
             height: 100%;
             background: linear-gradient(90deg, var(--primary), var(--accent));
-            border-radius: 3px;
-            transition: width 1s ease;
+            border-radius: 3px; transition: width 1s ease;
         }
-
-        /* EXPERIENCE */
-        .timeline {
-            margin-top: 3rem;
-            position: relative;
-            padding-left: 2rem;
-        }
-
+        .timeline { margin-top: 3rem; position: relative; padding-left: 2rem; }
         .timeline::before {
-            content: '';
-            position: absolute;
-            left: 0;
-            top: 0;
-            bottom: 0;
+            content: ''; position: absolute; left: 0; top: 0; bottom: 0;
             width: 2px;
-            background: linear-gradient(to bottom, 
-            var(--primary), var(--accent), transparent);
+            background: linear-gradient(to bottom, var(--primary), var(--accent), transparent);
         }
-
-        .timeline-item {
-            position: relative;
-            margin-bottom: 3rem;
-            padding-left: 2rem;
-        }
-
+        .timeline-item { position: relative; margin-bottom: 3rem; padding-left: 2rem; }
         .timeline-dot {
-            position: absolute;
-            left: -2.45rem;
-            top: 0.4rem;
-            width: 14px;
-            height: 14px;
-            border-radius: 50%;
-            background: var(--primary);
-            border: 2px solid var(--dark);
+            position: absolute; left: -2.45rem; top: 0.4rem;
+            width: 14px; height: 14px; border-radius: 50%;
+            background: var(--primary); border: 2px solid var(--dark);
             box-shadow: 0 0 10px rgba(108,99,255,0.5);
         }
-
         .timeline-date {
-            color: var(--primary);
-            font-size: 0.8rem;
-            font-weight: 600;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            margin-bottom: 0.3rem;
+            color: var(--primary); font-size: 0.8rem; font-weight: 600;
+            text-transform: uppercase; letter-spacing: 1px; margin-bottom: 0.3rem;
         }
-
-        .timeline-item h3 {
-            font-size: 1.1rem;
-            margin-bottom: 0.2rem;
-        }
-
-        .timeline-company {
-            color: var(--accent);
-            font-size: 0.9rem;
-            margin-bottom: 0.75rem;
-        }
-
-        .timeline-item ul {
-            list-style: none;
-            padding: 0;
-        }
-
+        .timeline-item h3 { font-size: 1.1rem; margin-bottom: 0.2rem; }
+        .timeline-company { color: var(--accent); font-size: 0.9rem; margin-bottom: 0.75rem; }
+        .timeline-item ul { list-style: none; padding: 0; }
         .timeline-item ul li {
-            color: var(--muted);
-            font-size: 0.875rem;
-            padding: 0.3rem 0;
-            padding-left: 1.2rem;
-            position: relative;
+            color: var(--muted); font-size: 0.875rem;
+            padding: 0.3rem 0; padding-left: 1.2rem; position: relative;
         }
-
-        .timeline-item ul li::before {
-            content: '▸';
-            position: absolute;
-            left: 0;
-            color: var(--primary);
-        }
-
-        /* CERTIFICATIONS */
-        .certs-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-            gap: 1rem;
-            margin-top: 3rem;
-        }
-
+        .timeline-item ul li::before { content: '▸'; position: absolute; left: 0; color: var(--primary); }
+        .certs-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 1rem; margin-top: 3rem; }
         .cert-card {
-            background: var(--card);
-            border: 1px solid rgba(108,99,255,0.15);
-            border-radius: 12px;
-            padding: 1.2rem 1.5rem;
-            display: flex;
-            align-items: center;
-            gap: 1rem;
-            transition: all 0.3s;
+            background: var(--card); border: 1px solid rgba(108,99,255,0.15);
+            border-radius: 12px; padding: 1.2rem 1.5rem;
+            display: flex; align-items: center; gap: 1rem; transition: all 0.3s;
         }
-
-        .cert-card:hover {
-            border-color: rgba(108,99,255,0.4);
-            transform: translateX(5px);
-        }
-
-        .cert-icon {
-            font-size: 1.8rem;
-            flex-shrink: 0;
-        }
-
-        .cert-name {
-            font-size: 0.85rem;
-            font-weight: 600;
-            color: var(--text);
-        }
-
-        /* CONTACT */
-        #contact {
-            background: var(--darker);
-            max-width: 100%;
-            padding: 6rem 2rem;
-            text-align: center;
-        }
-
-        #contact .inner {
-            max-width: 700px;
-            margin: 0 auto;
-        }
-
-        .contact-links {
-            display: flex;
-            gap: 1rem;
-            justify-content: center;
-            flex-wrap: wrap;
-            margin-top: 2.5rem;
-        }
-
+        .cert-card:hover { border-color: rgba(108,99,255,0.4); transform: translateX(5px); }
+        .cert-icon { font-size: 1.8rem; flex-shrink: 0; }
+        .cert-name { font-size: 0.85rem; font-weight: 600; color: var(--text); }
+        #contact { background: var(--darker); max-width: 100%; padding: 6rem 2rem; text-align: center; }
+        #contact .inner { max-width: 700px; margin: 0 auto; }
+        .contact-links { display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; margin-top: 2.5rem; }
         .contact-link {
-            background: var(--card);
-            border: 1px solid rgba(108,99,255,0.2);
-            color: var(--text);
-            padding: 0.9rem 1.8rem;
-            border-radius: 10px;
-            text-decoration: none;
-            font-size: 0.9rem;
-            font-weight: 600;
-            transition: all 0.3s;
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
+            background: var(--card); border: 1px solid rgba(108,99,255,0.2);
+            color: var(--text); padding: 0.9rem 1.8rem; border-radius: 10px;
+            text-decoration: none; font-size: 0.9rem; font-weight: 600;
+            transition: all 0.3s; display: flex; align-items: center; gap: 0.5rem;
         }
-
         .contact-link:hover {
-            background: var(--primary);
-            border-color: var(--primary);
+            background: var(--primary); border-color: var(--primary);
             transform: translateY(-3px);
             box-shadow: 0 10px 25px rgba(108,99,255,0.3);
         }
-
         .available-badge {
-            display: inline-flex;
-            align-items: center;
-            gap: 0.5rem;
+            display: inline-flex; align-items: center; gap: 0.5rem;
             background: rgba(0,200,100,0.1);
             border: 1px solid rgba(0,200,100,0.3);
-            color: #00C864;
-            padding: 0.4rem 1.2rem;
-            border-radius: 50px;
-            font-size: 0.85rem;
-            margin-bottom: 1.5rem;
+            color: #00C864; padding: 0.4rem 1.2rem;
+            border-radius: 50px; font-size: 0.85rem; margin-bottom: 1.5rem;
         }
-
-        .available-dot {
-            width: 8px;
-            height: 8px;
-            border-radius: 50%;
-            background: #00C864;
-            animation: blink 1.5s infinite;
-        }
-
-        @keyframes blink {
-            0%, 100% { opacity: 1; }
-            50% { opacity: 0.3; }
-        }
-
-        /* FOOTER */
-        footer {
-            text-align: center;
-            padding: 2rem;
-            color: var(--muted);
-            font-size: 0.85rem;
-            border-top: 1px solid rgba(255,255,255,0.05);
-        }
-
-        /* RESPONSIVE */
+        .available-dot { width: 8px; height: 8px; border-radius: 50%; background: #00C864; animation: blink 1.5s infinite; }
+        @keyframes blink { 0%, 100% { opacity: 1; } 50% { opacity: 0.3; } }
+        footer { text-align: center; padding: 2rem; color: var(--muted); font-size: 0.85rem; border-top: 1px solid rgba(255,255,255,0.05); }
         @media (max-width: 768px) {
-            .nav-links {
-                display: none;
-            }
-
-            .hero-stats {
-                gap: 2rem;
-            }
+            .nav-links { display: none; }
+            .hero-stats { gap: 2rem; }
         }
     </style>
 </head>
 <body>
 
-<!-- NAVIGATION -->
 <nav>
     <div class="logo">SK.</div>
     <ul class="nav-links">
@@ -710,588 +276,234 @@
         <li><a href="#experience">Experience</a></li>
         <li><a href="#contact">Contact</a></li>
     </ul>
-    <a href="#contact" class="btn-primary" 
-       style="padding: 0.6rem 1.4rem; font-size:0.9rem;">
-       Hire Me
-    </a>
+    <a href="#contact" class="btn-primary" style="padding: 0.6rem 1.4rem; font-size:0.9rem;">Hire Me</a>
 </nav>
 
-<!-- HERO -->
 <div class="hero">
     <div class="hero-content">
-        <div class="hero-badge">
-            ✦ Available for Freelance Work
-        </div>
-        <h1>
-            Sarvesh Kommawar<br>
-            <span>AI & Data Analyst</span>
-        </h1>
+        <div class="hero-badge">✦ Available for Freelance Work</div>
+        <h1>Sarvesh Kommawar<br><span>AI & Data Analyst</span></h1>
         <p class="hero-subtitle">
-            I turn raw data into interactive dashboards, 
-            actionable insights, and AI-powered workflows 
-            that help businesses make smarter decisions — faster.
+            I turn raw data into interactive dashboards, actionable insights, and AI-powered workflows that help businesses make smarter decisions — faster.
         </p>
         <div class="hero-buttons">
-            <a href="#projects" class="btn-primary">
-                View My Work
-            </a>
-            <a href="#contact" class="btn-secondary">
-                Hire Me on Fiverr
-            </a>
+            <a href="#projects" class="btn-primary">View My Work</a>
+            <a href="#contact" class="btn-secondary">Hire Me</a>
         </div>
-
         <div class="hero-stats">
-            <div class="stat">
-                <div class="stat-number">200+</div>
-                <div class="stat-label">Prompts Engineered</div>
-            </div>
-            <div class="stat">
-                <div class="stat-number">5,000+</div>
-                <div class="stat-label">AI Outputs Annotated</div>
-            </div>
-            <div class="stat">
-                <div class="stat-number">30%</div>
-                <div class="stat-label">Model Accuracy Boost</div>
-            </div>
-            <div class="stat">
-                <div class="stat-number">40%</div>
-                <div class="stat-label">Reporting Time Saved</div>
-            </div>
+            <div class="stat"><div class="stat-number">200+</div><div class="stat-label">Prompts Engineered</div></div>
+            <div class="stat"><div class="stat-number">5,000+</div><div class="stat-label">AI Outputs Annotated</div></div>
+            <div class="stat"><div class="stat-number">30%</div><div class="stat-label">Model Accuracy Boost</div></div>
+            <div class="stat"><div class="stat-number">40%</div><div class="stat-label">Reporting Time Saved</div></div>
         </div>
     </div>
 </div>
 
-<!-- SERVICES -->
 <section id="services">
     <div class="inner">
         <div class="section-label">What I Offer</div>
-        <h2 class="section-title">
-            Services That Deliver <span>Real Results</span>
-        </h2>
-        <p class="section-sub">
-            From messy spreadsheets to executive-ready dashboards. 
-            From raw data to AI-powered insights.
-        </p>
-
+        <h2 class="section-title">Services That Deliver <span>Real Results</span></h2>
+        <p class="section-sub">From messy spreadsheets to executive-ready dashboards. From raw data to AI-powered insights.</p>
         <div class="services-grid">
             <div class="service-card">
                 <div class="service-icon">📊</div>
                 <h3>Power BI Dashboard Development</h3>
-                <p>
-                    Interactive, filterable dashboards that track 
-                    your most critical KPIs. From revenue and sales 
-                    to customer analytics and HR metrics.
-                </p>
-                <div class="service-tags">
-                    <span class="tag">Power BI</span>
-                    <span class="tag">DAX</span>
-                    <span class="tag">KPI Tracking</span>
-                </div>
+                <p>Interactive, filterable dashboards that track your most critical KPIs. From revenue and sales to customer analytics and HR metrics.</p>
+                <div class="service-tags"><span class="tag">Power BI</span><span class="tag">DAX</span><span class="tag">KPI Tracking</span></div>
             </div>
-
             <div class="service-card">
                 <div class="service-icon">🤖</div>
                 <h3>AI Prompt Engineering & Workflows</h3>
-                <p>
-                    Custom ChatGPT and Claude prompt libraries, 
-                    AI workflow automation, and LLM optimization 
-                    for your specific business processes.
-                </p>
-                <div class="service-tags">
-                    <span class="tag">ChatGPT</span>
-                    <span class="tag">Claude</span>
-                    <span class="tag">Automation</span>
-                </div>
+                <p>Custom ChatGPT and Claude prompt libraries, AI workflow automation, and LLM optimization for your specific business processes.</p>
+                <div class="service-tags"><span class="tag">ChatGPT</span><span class="tag">Claude</span><span class="tag">Automation</span></div>
             </div>
-
             <div class="service-card">
                 <div class="service-icon">🔍</div>
                 <h3>Data Analysis & Insight Reports</h3>
-                <p>
-                    Deep-dive analysis of your business data using 
-                    SQL and Python. I surface trends, anomalies, 
-                    and opportunities — with actionable recommendations.
-                </p>
-                <div class="service-tags">
-                    <span class="tag">Python</span>
-                    <span class="tag">SQL</span>
-                    <span class="tag">Pandas</span>
-                </div>
+                <p>Deep-dive analysis of your business data using SQL and Python. I surface trends, anomalies, and opportunities with actionable recommendations.</p>
+                <div class="service-tags"><span class="tag">Python</span><span class="tag">SQL</span><span class="tag">Pandas</span></div>
             </div>
-
             <div class="service-card">
                 <div class="service-icon">🧹</div>
                 <h3>Data Cleaning & Preparation</h3>
-                <p>
-                    Transform messy, inconsistent data into clean, 
-                    analysis-ready datasets. Duplicate removal, 
-                    standardization, and validation included.
-                </p>
-                <div class="service-tags">
-                    <span class="tag">Excel</span>
-                    <span class="tag">Python</span>
-                    <span class="tag">SQL</span>
-                </div>
+                <p>Transform messy, inconsistent data into clean, analysis-ready datasets. Duplicate removal, standardization, and validation included.</p>
+                <div class="service-tags"><span class="tag">Excel</span><span class="tag">Python</span><span class="tag">SQL</span></div>
             </div>
-
             <div class="service-card">
                 <div class="service-icon">📈</div>
                 <h3>Revenue & Sales Analytics</h3>
-                <p>
-                    Identify revenue trends, churn signals, and 
-                    high-value customer segments. I've analyzed 
-                    20,000+ sales records for real businesses.
-                </p>
-                <div class="service-tags">
-                    <span class="tag">Revenue Analysis</span>
-                    <span class="tag">Forecasting</span>
-                    <span class="tag">Churn</span>
-                </div>
+                <p>Identify revenue trends, churn signals, and high-value customer segments. I've analyzed 20,000+ sales records for real businesses.</p>
+                <div class="service-tags"><span class="tag">Revenue Analysis</span><span class="tag">Forecasting</span><span class="tag">Churn</span></div>
             </div>
-
             <div class="service-card">
                 <div class="service-icon">⚡</div>
                 <h3>Automated Reporting Pipelines</h3>
-                <p>
-                    Replace manual weekly reports with automated 
-                    pipelines. Save hours every week and eliminate 
-                    human error from your reporting process.
-                </p>
-                <div class="service-tags">
-                    <span class="tag">ETL</span>
-                    <span class="tag">Automation</span>
-                    <span class="tag">SQL</span>
-                </div>
+                <p>Replace manual weekly reports with automated pipelines. Save hours every week and eliminate human error from your reporting process.</p>
+                <div class="service-tags"><span class="tag">ETL</span><span class="tag">Automation</span><span class="tag">SQL</span></div>
             </div>
         </div>
     </div>
 </section>
 
-<!-- PROJECTS -->
 <section id="projects">
     <div class="section-label">Portfolio</div>
-    <h2 class="section-title">
-        Projects That <span>Prove the Work</span>
-    </h2>
-    <p class="section-sub">
-        Real dashboards, real data, real results.
-    </p>
-
+    <h2 class="section-title">Projects That <span>Prove the Work</span></h2>
+    <p class="section-sub">Real dashboards, real data, real results.</p>
     <div class="projects-grid">
         <div class="project-card">
             <div class="project-header blue">📊</div>
             <div class="project-body">
                 <h3>Revenue Pulse Dashboard</h3>
-                <p>
-                    End-to-end BI dashboard built from 15,000+ 
-                    records tracking 10 revenue KPIs including 
-                    CLV, MRR, and churn rate across 3 business units.
-                </p>
+                <p>End-to-end BI dashboard built from 15,000+ records tracking 10 revenue KPIs including CLV, MRR, and churn rate across 3 business units.</p>
                 <div class="project-metrics">
                     <span class="metric">40% less manual reporting</span>
                     <span class="metric">15,000+ records</span>
                     <span class="metric">10 KPIs</span>
                 </div>
-                <div class="project-tags" 
-                     style="display:flex;gap:0.5rem;
-                     flex-wrap:wrap;margin-bottom:1rem;">
-                    <span class="tag">Power BI</span>
-                    <span class="tag">DAX</span>
-                    <span class="tag">SQL</span>
+                <div style="display:flex;gap:0.5rem;flex-wrap:wrap;margin-bottom:1rem;">
+                    <span class="tag">Power BI</span><span class="tag">DAX</span><span class="tag">SQL</span>
                 </div>
                 <div class="project-links">
-                    <a href="https://github.com/kommawar57" 
-                       target="_blank">
-                        → View on GitHub
-                    </a>
+                    <a href="https://github.com/sarusarvesh993-cyber" target="_blank">→ View on GitHub</a>
                 </div>
             </div>
         </div>
-
         <div class="project-card">
             <div class="project-header purple">🛒</div>
             <div class="project-body">
                 <h3>E-Commerce AI Analytics</h3>
-                <p>
-                    Analyzed 10,000+ transactions to identify 
-                    top-revenue customers, seasonal trends, and 
-                    funnel drop-off points. Insights adopted into 
-                    live marketing strategy.
-                </p>
+                <p>Analyzed 10,000+ transactions to identify top-revenue customers, seasonal trends, and funnel drop-off points. Insights adopted into live marketing strategy.</p>
                 <div class="project-metrics">
                     <span class="metric">10,000+ transactions</span>
                     <span class="metric">Funnel Analysis</span>
                     <span class="metric">Live Impact</span>
                 </div>
-                <div class="project-tags" 
-                     style="display:flex;gap:0.5rem;
-                     flex-wrap:wrap;margin-bottom:1rem;">
-                    <span class="tag">Python</span>
-                    <span class="tag">SQL</span>
-                    <span class="tag">Power BI</span>
+                <div style="display:flex;gap:0.5rem;flex-wrap:wrap;margin-bottom:1rem;">
+                    <span class="tag">Python</span><span class="tag">SQL</span><span class="tag">Power BI</span>
                 </div>
                 <div class="project-links">
-                    <a href="https://github.com/kommawar57" 
-                       target="_blank">
-                        → View on GitHub
-                    </a>
+                    <a href="https://github.com/sarusarvesh993-cyber" target="_blank">→ View on GitHub</a>
                 </div>
             </div>
         </div>
-
         <div class="project-card">
             <div class="project-header teal">🧠</div>
             <div class="project-body">
                 <h3>LLM Prompt Optimization Suite</h3>
-                <p>
-                    Systematic prompt evaluation framework testing 
-                    100+ prompt variants. Improved task-specific 
-                    LLM output quality by 35% for classification 
-                    and summarization tasks.
-                </p>
+                <p>Systematic prompt evaluation framework testing 100+ prompt variants. Improved task-specific LLM output quality by 35% for classification and summarization tasks.</p>
                 <div class="project-metrics">
                     <span class="metric">35% quality improvement</span>
                     <span class="metric">100+ prompts tested</span>
                     <span class="metric">GPT-4</span>
                 </div>
-                <div class="project-tags" 
-                     style="display:flex;gap:0.5rem;
-                     flex-wrap:wrap;margin-bottom:1rem;">
-                    <span class="tag">Python</span>
-                    <span class="tag">GPT-4</span>
-                    <span class="tag">Prompt Engineering</span>
+                <div style="display:flex;gap:0.5rem;flex-wrap:wrap;margin-bottom:1rem;">
+                    <span class="tag">Python</span><span class="tag">GPT-4</span><span class="tag">Prompt Engineering</span>
                 </div>
                 <div class="project-links">
-                    <a href="https://github.com/kommawar57" 
-                       target="_blank">
-                        → View on GitHub
-                    </a>
+                    <a href="https://github.com/sarusarvesh993-cyber" target="_blank">→ View on GitHub</a>
                 </div>
             </div>
         </div>
     </div>
 </section>
 
-<!-- SKILLS -->
 <section id="skills">
     <div class="inner">
         <div class="section-label">Technical Stack</div>
-        <h2 class="section-title">
-            Skills & <span>Expertise</span>
-        </h2>
-        <p class="section-sub">
-            A full-stack data toolkit — from raw data to 
-            AI-powered insights and interactive dashboards.
-        </p>
-
+        <h2 class="section-title">Skills & <span>Expertise</span></h2>
+        <p class="section-sub">A full-stack data toolkit — from raw data to AI-powered insights and interactive dashboards.</p>
         <div class="skills-grid">
             <div class="skill-category">
                 <h3>📊 BI & Visualization</h3>
-                <div class="skill-item">
-                    <div class="skill-info">
-                        <span>Power BI & DAX</span>
-                        <span>90%</span>
-                    </div>
-                    <div class="skill-bar">
-                        <div class="skill-fill" 
-                             style="width:90%"></div>
-                    </div>
-                </div>
-                <div class="skill-item">
-                    <div class="skill-info">
-                        <span>Excel (Advanced)</span>
-                        <span>85%</span>
-                    </div>
-                    <div class="skill-bar">
-                        <div class="skill-fill" 
-                             style="width:85%"></div>
-                    </div>
-                </div>
-                <div class="skill-item">
-                    <div class="skill-info">
-                        <span>KPI Dashboard Design</span>
-                        <span>88%</span>
-                    </div>
-                    <div class="skill-bar">
-                        <div class="skill-fill" 
-                             style="width:88%"></div>
-                    </div>
-                </div>
+                <div class="skill-item"><div class="skill-info"><span>Power BI & DAX</span><span>90%</span></div><div class="skill-bar"><div class="skill-fill" style="width:90%"></div></div></div>
+                <div class="skill-item"><div class="skill-info"><span>Excel (Advanced)</span><span>85%</span></div><div class="skill-bar"><div class="skill-fill" style="width:85%"></div></div></div>
+                <div class="skill-item"><div class="skill-info"><span>KPI Dashboard Design</span><span>88%</span></div><div class="skill-bar"><div class="skill-fill" style="width:88%"></div></div></div>
             </div>
-
             <div class="skill-category">
                 <h3>💻 Programming & Data</h3>
-                <div class="skill-item">
-                    <div class="skill-info">
-                        <span>SQL</span>
-                        <span>85%</span>
-                    </div>
-                    <div class="skill-bar">
-                        <div class="skill-fill" 
-                             style="width:85%"></div>
-                    </div>
-                </div>
-                <div class="skill-item">
-                    <div class="skill-info">
-                        <span>Python (Pandas, NumPy)</span>
-                        <span>80%</span>
-                    </div>
-                    <div class="skill-bar">
-                        <div class="skill-fill" 
-                             style="width:80%"></div>
-                    </div>
-                </div>
-                <div class="skill-item">
-                    <div class="skill-info">
-                        <span>Apache Spark</span>
-                        <span>65%</span>
-                    </div>
-                    <div class="skill-bar">
-                        <div class="skill-fill" 
-                             style="width:65%"></div>
-                    </div>
-                </div>
+                <div class="skill-item"><div class="skill-info"><span>SQL</span><span>85%</span></div><div class="skill-bar"><div class="skill-fill" style="width:85%"></div></div></div>
+                <div class="skill-item"><div class="skill-info"><span>Python (Pandas, NumPy)</span><span>80%</span></div><div class="skill-bar"><div class="skill-fill" style="width:80%"></div></div></div>
+                <div class="skill-item"><div class="skill-info"><span>Apache Spark</span><span>65%</span></div><div class="skill-bar"><div class="skill-fill" style="width:65%"></div></div></div>
             </div>
-
             <div class="skill-category">
                 <h3>🤖 AI & LLM Tools</h3>
-                <div class="skill-item">
-                    <div class="skill-info">
-                        <span>Prompt Engineering</span>
-                        <span>92%</span>
-                    </div>
-                    <div class="skill-bar">
-                        <div class="skill-fill" 
-                             style="width:92%"></div>
-                    </div>
-                </div>
-                <div class="skill-item">
-                    <div class="skill-info">
-                        <span>LLM Evaluation & RLHF</span>
-                        <span>85%</span>
-                    </div>
-                    <div class="skill-bar">
-                        <div class="skill-fill" 
-                             style="width:85%"></div>
-                    </div>
-                </div>
-                <div class="skill-item">
-                    <div class="skill-info">
-                        <span>GPT-4 / Claude</span>
-                        <span>90%</span>
-                    </div>
-                    <div class="skill-bar">
-                        <div class="skill-fill" 
-                             style="width:90%"></div>
-                    </div>
-                </div>
+                <div class="skill-item"><div class="skill-info"><span>Prompt Engineering</span><span>92%</span></div><div class="skill-bar"><div class="skill-fill" style="width:92%"></div></div></div>
+                <div class="skill-item"><div class="skill-info"><span>LLM Evaluation & RLHF</span><span>85%</span></div><div class="skill-bar"><div class="skill-fill" style="width:85%"></div></div></div>
+                <div class="skill-item"><div class="skill-info"><span>GPT-4 / Claude</span><span>90%</span></div><div class="skill-bar"><div class="skill-fill" style="width:90%"></div></div></div>
             </div>
-
             <div class="skill-category">
                 <h3>📋 Analytics & Process</h3>
-                <div class="skill-item">
-                    <div class="skill-info">
-                        <span>Data Cleaning & ETL</span>
-                        <span>88%</span>
-                    </div>
-                    <div class="skill-bar">
-                        <div class="skill-fill" 
-                             style="width:88%"></div>
-                    </div>
-                </div>
-                <div class="skill-item">
-                    <div class="skill-info">
-                        <span>Revenue & Sales Analytics</span>
-                        <span>85%</span>
-                    </div>
-                    <div class="skill-bar">
-                        <div class="skill-fill" 
-                             style="width:85%"></div>
-                    </div>
-                </div>
-                <div class="skill-item">
-                    <div class="skill-info">
-                        <span>Data Annotation & QA</span>
-                        <span>90%</span>
-                    </div>
-                    <div class="skill-bar">
-                        <div class="skill-fill" 
-                             style="width:90%"></div>
-                    </div>
-                </div>
+                <div class="skill-item"><div class="skill-info"><span>Data Cleaning & ETL</span><span>88%</span></div><div class="skill-bar"><div class="skill-fill" style="width:88%"></div></div></div>
+                <div class="skill-item"><div class="skill-info"><span>Revenue & Sales Analytics</span><span>85%</span></div><div class="skill-bar"><div class="skill-fill" style="width:85%"></div></div></div>
+                <div class="skill-item"><div class="skill-info"><span>Data Annotation & QA</span><span>90%</span></div><div class="skill-bar"><div class="skill-fill" style="width:90%"></div></div></div>
             </div>
         </div>
     </div>
 </section>
 
-<!-- EXPERIENCE -->
 <section id="experience">
     <div class="section-label">Work History</div>
-    <h2 class="section-title">
-        Professional <span>Experience</span>
-    </h2>
-    <p class="section-sub">
-        Real experience. Real numbers. Real impact.
-    </p>
-
+    <h2 class="section-title">Professional <span>Experience</span></h2>
+    <p class="section-sub">Real experience. Real numbers. Real impact.</p>
     <div class="timeline">
         <div class="timeline-item">
             <div class="timeline-dot"></div>
             <div class="timeline-date">Dec 2025 – Present</div>
             <h3>AI / Data Analyst (LLM)</h3>
-            <div class="timeline-company">
-                Innodata — Remote
-            </div>
+            <div class="timeline-company">Innodata — Remote</div>
             <ul>
-                <li>
-                    Engineered 200+ prompts for LLM training 
-                    pipelines, achieving 30% improvement in 
-                    model response accuracy
-                </li>
-                <li>
-                    Annotated 5,000+ AI-generated outputs for 
-                    RLHF workflows, reducing labeling error 
-                    rates by 25%
-                </li>
-                <li>
-                    Automated data validation workflows using 
-                    SQL, resolving 120+ inconsistencies and 
-                    improving report speed by 25%
-                </li>
-                <li>
-                    Collaborated with AI researchers to define 
-                    evaluation rubrics for large language 
-                    model outputs
-                </li>
+                <li>Engineered 200+ prompts for LLM training pipelines, achieving 30% improvement in model response accuracy</li>
+                <li>Annotated 5,000+ AI-generated outputs for RLHF workflows, reducing labeling error rates by 25%</li>
+                <li>Automated data validation workflows using SQL, resolving 120+ inconsistencies and improving report speed by 25%</li>
+                <li>Collaborated with AI researchers to define evaluation rubrics for large language model outputs</li>
             </ul>
         </div>
-
         <div class="timeline-item">
             <div class="timeline-dot"></div>
             <div class="timeline-date">Jul 2025 – Oct 2025</div>
             <h3>Revenue Analyst</h3>
-            <div class="timeline-company">
-                LearnTechzo — Bengaluru
-            </div>
+            <div class="timeline-company">LearnTechzo — Bengaluru</div>
             <ul>
-                <li>
-                    Analyzed 20,000+ sales records to surface 
-                    revenue trends, churn signals, and 
-                    high-value segments
-                </li>
-                <li>
-                    Built AI-assisted forecasting models that 
-                    reduced revenue discrepancy by 30%
-                </li>
-                <li>
-                    Designed Power BI dashboards tracking 
-                    8–12 KPIs, reducing manual reporting by 40%
-                </li>
+                <li>Analyzed 20,000+ sales records to surface revenue trends, churn signals, and high-value segments</li>
+                <li>Built AI-assisted forecasting models that reduced revenue discrepancy by 30%</li>
+                <li>Designed Power BI dashboards tracking 8–12 KPIs, reducing manual reporting by 40%</li>
             </ul>
         </div>
     </div>
 </section>
 
-<!-- CERTIFICATIONS -->
 <section id="certifications">
     <div class="section-label">Credentials</div>
-    <h2 class="section-title">
-        Certifications & <span>Training</span>
-    </h2>
-
+    <h2 class="section-title">Certifications & <span>Training</span></h2>
     <div class="certs-grid">
-        <div class="cert-card">
-            <div class="cert-icon">🧠</div>
-            <div class="cert-name">
-                Prompt Engineering for Generative AI
-            </div>
-        </div>
-        <div class="cert-card">
-            <div class="cert-icon">🐍</div>
-            <div class="cert-name">
-                Applied Data Analytics with Python
-            </div>
-        </div>
-        <div class="cert-card">
-            <div class="cert-icon">⚡</div>
-            <div class="cert-name">
-                Apache Spark Fundamentals
-            </div>
-        </div>
-        <div class="cert-card">
-            <div class="cert-icon">🤖</div>
-            <div class="cert-name">
-                AI Productivity Tools
-            </div>
-        </div>
-        <div class="cert-card">
-            <div class="cert-icon">📊</div>
-            <div class="cert-name">
-                Power BI Essentials
-            </div>
-        </div>
-        <div class="cert-card">
-            <div class="cert-icon">📋</div>
-            <div class="cert-name">
-                Excel & SQL (Be10X)
-            </div>
-        </div>
+        <div class="cert-card"><div class="cert-icon">🧠</div><div class="cert-name">Prompt Engineering for Generative AI</div></div>
+        <div class="cert-card"><div class="cert-icon">🐍</div><div class="cert-name">Applied Data Analytics with Python</div></div>
+        <div class="cert-card"><div class="cert-icon">⚡</div><div class="cert-name">Apache Spark Fundamentals</div></div>
+        <div class="cert-card"><div class="cert-icon">🤖</div><div class="cert-name">AI Productivity Tools</div></div>
+        <div class="cert-card"><div class="cert-icon">📊</div><div class="cert-name">Power BI Essentials</div></div>
+        <div class="cert-card"><div class="cert-icon">📋</div><div class="cert-name">Excel & SQL (Be10X)</div></div>
     </div>
 </section>
 
-<!-- CONTACT -->
 <section id="contact">
     <div class="inner">
-        <div class="available-badge">
-            <div class="available-dot"></div>
-            Available for New Projects
-        </div>
-
+        <div class="available-badge"><div class="available-dot"></div>Available for New Projects</div>
         <div class="section-label">Get In Touch</div>
-        <h2 class="section-title">
-            Ready to Turn Your Data<br>
-            <span>Into Decisions?</span>
-        </h2>
-        <p class="section-sub" 
-           style="margin: 1rem auto 0;">
-            Send me your dataset. I'll tell you exactly what 
-            I can build before you spend a single dollar.
-            Fast response. No fluff.
+        <h2 class="section-title">Ready to Turn Your Data<br><span>Into Decisions?</span></h2>
+        <p class="section-sub" style="margin: 1rem auto 0;">
+            Send me your dataset. I'll tell you exactly what I can build before you spend a single dollar. Fast response. No fluff.
         </p>
-
         <div class="contact-links">
-            <a href="https://www.fiverr.com/" 
-               class="contact-link" target="_blank">
-                🟢 Hire Me on Fiverr
-            </a>
-            <a href="https://www.upwork.com/" 
-               class="contact-link" target="_blank">
-                🔵 Connect on Upwork
-            </a>
-            <a href="mailto:kommawar57@gmail.com" 
-               class="contact-link">
-                📧 kommawar57@gmail.com
-            </a>
-            <a href="https://github.com/kommawar57" 
-               class="contact-link" target="_blank">
-                💻 GitHub
-            </a>
-            <a href="https://linkedin.com/" 
-               class="contact-link" target="_blank">
-                💼 LinkedIn
-            </a>
+            <a href="mailto:kommawar57@gmail.com" class="contact-link">📧 kommawar57@gmail.com</a>
+            <a href="https://www.linkedin.com/in/sarvesh-kommawar-3b166b278/" class="contact-link" target="_blank">💼 LinkedIn</a>
+            <a href="https://github.com/sarusarvesh993-cyber" class="contact-link" target="_blank">💻 GitHub</a>
+            <a href="tel:+918096047347" class="contact-link">📱 +91 8096047347</a>
         </div>
     </div>
 </section>
 
-<!-- FOOTER -->
 <footer>
-    <p>
-        © 2025 Sarvesh Kommawar · 
-        AI & Data Analyst · 
-        Hyderabad, India · 
-        Open to Remote Work Worldwide
-    </p>
+    <p>© 2025 Sarvesh Kommawar · AI & Data Analyst · Hyderabad, India · Open to Remote Work Worldwide</p>
 </footer>
 
 </body>
